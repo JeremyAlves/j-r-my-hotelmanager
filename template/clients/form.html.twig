@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Ajouter un client
+{% endblock title %}
+
+{% block content %}
+
+        {% if client %}
+            <form action="{{ env.base_path ~ '/clients/' ~ client.id ~ '/edit' }}" method="post" class="form">
+        {% else %}
+            <form action="{{ env.base_path ~ '/clients/new/' }}" method="post" class="form">
+        {% endif %}
+
+        <div class="form-group">
+            <label for="formFirstname">Prénom</label>
+            <input id="formFirstname" type="text" class="form-control" name="firstname" value="{{ client.firstname }}">
+        </div>
+        <div class="form-group">
+            <label for="formLastname">Nom de famille</label>
+            <input id="formLastname" type="text" class="form-control" name="lastname" value="{{ client.lastname }}">
+        </div>
+        <div class="form-group">
+            <label for="formEntry_date">Date d'entrée</label>
+            <input id="formEntry_date" type="date" class="form-control" name="entry_date" value="{{ client.entry_date }}">
+        </div>
+        <div class="form-group">
+            <label for="formDeparture_date">Date de sortie</label>
+            <input id="formDeparture_date" type="date" class="form-control" name="departure_date" value="{{ client.departure_date }}">
+        </div>
+
+        <div class="pull-right">
+            {% if client %}
+            <a href="{{ env.base_path }}" class="btn btn-primary">Home</a>
+            <button class="btn btn-warning">Éditer le client</button>
+            {% else %}
+            <a href="{{ env.base_path }}" class="btn btn-primary">Home</a>
+            <button class="btn btn-primary">Ajouter le client</button>
+            {% endif %}
+        </div>
+
+    </form>
+{% endblock content %}

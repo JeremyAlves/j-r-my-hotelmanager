@@ -43,8 +43,9 @@ Gestionnaire d'hôtels Hb-HotelManager
                 </thead>
 
                 <tbody>
+                    {% for room in rooms %}
                     <tr>
-                        <td>101</td>
+                        <td>{{ room.number }}</td>
                         <td>
                             <span class="badge badge-warning">Réservée</span>
                         </td>
@@ -59,54 +60,7 @@ Gestionnaire d'hôtels Hb-HotelManager
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>
-                            <span class="badge badge-warning">Réservée</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-success">Libre</span>
-                        </td>
-                        <td></td>
-                        <td>2020/03/20</td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>
-                            <span class="badge badge-warning">Réservée</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-danger">Occupée</span>
-                        </td>
-                        <td>2020/04/03</td>
-                        <td></td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>
-                            <span class="badge badge-secondary">Non réservée</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-success">Libre</span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 

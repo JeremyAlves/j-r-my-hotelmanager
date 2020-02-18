@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Ajouter une chambre
+{% endblock title %}
+
+{% block content %}
+
+        {% if room %}
+            <form action="{{ env.base_path ~ '/rooms/' ~ room.id ~ '/edit' }}" method="post" class="form">
+        {% else %}
+            <form action="{{ env.base_path ~ '/rooms/new/' }}" method="post" class="form">
+        {% endif %}
+
+        <div class="form-group">
+            <label for="formNumber">N° de chambre</label>
+            <input id="formNumber" type="text" class="form-control" name="number" value="{{ room.number }}">
+        </div>
+
+        <div class="pull-right">
+            {% if room %}
+            <a href="{{ env.base_path }}" class="btn btn-primary">Home</a>
+            <button class="btn btn-warning">Éditer la chambre</button>
+            {% else %}
+            <a href="{{ env.base_path }}" class="btn btn-primary">Home</a>
+            <button class="btn btn-primary">Ajouter la chambre</button>
+            {% endif %}
+        </div>
+
+    </form>
+{% endblock content %}

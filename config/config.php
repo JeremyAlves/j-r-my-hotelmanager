@@ -10,7 +10,8 @@ $configuration = [
     ],
     'env' => [
         'base_path' => 'http://localhost/hbhotelmanager-master',
-        'site_name' => 'HB Hotel Manager'
+        'site_name' => 'HB Hotel Manager',
+        'cli' => 'http://localhost/hbhotelmanager-master/clients'
     ]
 ];
 
