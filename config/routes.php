@@ -11,6 +11,7 @@ $router->get('', 'PagesController@index'); // Page d'accueil contenant entre aut
 /**
  * Routes ROOM
  */
+$router->get('/rooms', 'RoomsController@index');
 $router->get('/rooms/(\d+)', 'RoomsController@show'); // Affichage de 1 room
 $router->get('/rooms/new/', 'RoomsController@new');     // Affiche le formulaire de création
 $router->post('/rooms/new/', 'RoomsController@create'); // Traite le formulaire de création puis redirige

@@ -11,7 +11,6 @@ class RoomsController extends AbstractController {
     public function index() {
         // 1. Récupérer les clients
         $rooms = $this->container->getRoomManager()->findAll();
-
         //2. Afficher les client
         echo $this->container->getTwig()->render('pages/index.html.twig', [
             'rooms' => $rooms
