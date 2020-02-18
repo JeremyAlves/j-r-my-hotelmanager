@@ -17,7 +17,7 @@ $router->get('/rooms/new/', 'RoomsController@new');     // Affiche le formulaire
 $router->post('/rooms/new/', 'RoomsController@create'); // Traite le formulaire de création puis redirige
 $router->get('/rooms/(\d+)/edit/', 'RoomsController@edit');     // Affiche le formulaire d'édition
 $router->post('/rooms/(\d+)/edit/', 'RoomsController@update');  // Traite le formulaire d'édition puis redirige
-$router->get('/rooms/(\d+)/delete/', 'RoomsController@delete'); // Action de supprimer un user
+$router->get('/rooms/(\d+)/delete/', 'RoomsController@delete'); // Action de supprimer une room
 
 /**
  * Routes CLIENT

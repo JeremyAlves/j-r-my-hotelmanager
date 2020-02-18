@@ -5,13 +5,13 @@ namespace App\Controller;
 class RoomsController extends AbstractController {
 
     /**
-     * Afficher les clients
-     * Route: GET /clients/
+     * Afficher les rooms
+     * Route: GET /rooms/
      */
     public function index() {
-        // 1. Récupérer les clients
+        // 1. Récupérer les rooms
         $rooms = $this->container->getRoomManager()->findAll();
-        //2. Afficher les client
+        //2. Afficher les rooms
         echo $this->container->getTwig()->render('pages/index.html.twig', [
             'rooms' => $rooms
         ]);
@@ -24,10 +24,12 @@ class RoomsController extends AbstractController {
     public function show(int $id) {
         // 1. Récupérer la room par son id
         $room = $this->container->getRoomManager()->findOneById($id);
+        $clients = $this->container->getClientManager()->findAll($id);
 
         //2. Afficher la room
         echo $this->container->getTwig()->render('rooms/show.html.twig', [
-            'room' => $room
+            'room' => $room,
+            'clients' => $clients,
         ]);
     }
 
@@ -41,7 +43,7 @@ class RoomsController extends AbstractController {
 
     /**
      * Traitement du formulaire de création puis redirection vers l'index des cars
-     * POST /cars/new
+     * POST /rooms/new
      */
     public function create() {
         $this->container->getRoomManager()->create($_POST);
@@ -50,7 +52,7 @@ class RoomsController extends AbstractController {
 
         /**
      * Affichage du formulaire d'édition
-     * GET /users/new
+     * GET /rooms/new
      */
     public function edit(int $id)
     {
@@ -60,8 +62,8 @@ class RoomsController extends AbstractController {
     }
 
     /**
-     * Traitement du formulaire d'édition puis redirection vers l'index des clients
-     * POST /clients/new
+     * Traitement du formulaire d'édition puis redirection vers l'index des rooms
+     * POST /rooms/new
      */
     public function update(int $id)
     {
@@ -70,8 +72,8 @@ class RoomsController extends AbstractController {
     }
 
     /**
-     * Suppression d'un client
-     * GET /clients/:id/delete
+     * Suppression d'une room
+     * GET /rooms/:id/delete
      */
     public function delete(int $id) {
         

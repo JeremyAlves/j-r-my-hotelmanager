@@ -19,11 +19,11 @@ class ClientsController extends AbstractController {
     }
 
         /**
-     * Afficher la page de 1 car
+     * Afficher la page de 1 client
      * Route: GET /cars/:id
      */
     public function show(int $id) {
-        // 1. Récupérer le car par son id
+        // 1. Récupérer le client par son id
         $client = $this->container->getClientManager()->findOneById($id);
 
         //2. Afficher le car
@@ -34,15 +34,15 @@ class ClientsController extends AbstractController {
 
     /**
      * Affichage du formulaire de création
-     * GET /cars/new
+     * GET /clients/new
      */
     public function new() {
         echo $this->container->getTwig()->render('clients/form.html.twig');
     }
 
     /**
-     * Traitement du formulaire de création puis redirection vers l'index des cars
-     * POST /cars/new
+     * Traitement du formulaire de création puis redirection vers l'index des clients
+     * POST /clients/new
      */
     public function create() {
         $this->container->getClientManager()->create($_POST);
